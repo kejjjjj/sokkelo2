@@ -17,14 +17,16 @@ public:
 
 	[[nodiscard]] virtual constexpr bool IsWall() const noexcept { return false; }
 
-private:
-	std::array<const CCell*, 4> m_arrNeighbors{};
 	uvec2 m_vecIndex;
 	std::size_t m_uQuickIndex; //index on the grid, left to right, top to bottom order
 
 	bool m_bVisited{};
 	bool bBacktraced{}; //deadend
 	bool bDeadend{}; //has only one corridor neighbor
+
+protected:
+	std::array<const CCell*, 4> m_arrNeighbors{};
+
 
 };
 
